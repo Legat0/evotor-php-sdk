@@ -188,6 +188,15 @@ class Operation implements OperationInterface
         return $this;
     }
 
+    public function cursor(string $cursor): self
+    {
+        if (!isset($this->request_options['query'])) {
+            $this->request_options['query'] = [];
+        }
+        $this->request_options['query']['cursor'] = $cursor;
+        return $this;
+    }
+
     public function getPath()
     {
         return $this->path;

@@ -30,6 +30,11 @@ class Response
         return $this->response;
     }
 
+    public function toObject(): object
+    {
+        return (object) json_decode($this->response->getBody());
+    }
+
     public function toArray()
     {
         if (!$this->arr) {
